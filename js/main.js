@@ -53,7 +53,7 @@ $('#btn-twitter').click(function(){
    
   var that = this;      
 
-  cb.setToken('84832050-lTLUyzC12IIjEnipuUhzKFmHCYvj2G0yTTIHGbxZ4--', '--v5N1MeTEHiRnsAlbx2pKUy6S7jApGJYbW8RwwRtEF8');
+  cb.setToken('84832050-lTLUyzC12IIjEnipuUhzKFmHCYvj2G0yTTIHGbxZ4', 'v5N1MeTEHiRnsAlbx2pKUy6S7jApGJYbW8RwwRtEF8');
 
   cb.__call(
     'account_verifyCredentials',
@@ -62,7 +62,7 @@ $('#btn-twitter').click(function(){
         
         //we are logged in with twitter 
 
-        if(!reply.errors || true == true){
+        if(!reply.errors){
             
             // $.cookie.json = true;
             $.cookie('user', 'logged_in');
@@ -172,6 +172,8 @@ $('#interests-form').submit(function(post){
 
     notify();
 
+    load_map();
+
     return false;
 
 })
@@ -187,9 +189,47 @@ if($.cookie('user')){
     // console.log($.cookie('user'));
     set_current_section($("#homepage"));      
 
+    load_map();
+
     notify(); 
 }
 
+function load_map(){
+  
+    
+    var map = L.map('map').setView([40.7534388, -73.9901187], 16);
+    
+    // var marker = L.marker([40.7534388, -73.9901187]).addTo(map).bindPopup("AlleyNYC").openPopup();
+    var bat1 = L.marker([40.762711,-73.9739]).addTo(map).bindPopup("Tiffany's").openPopup();
+
+
+    L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
+        maxZoom: 18
+        
+    }).addTo(map);
+
+
+    // function onLocationFound(e) {
+    //     var radius = e.accuracy / 2;
+
+    //     L.marker(e.latlng, {bounceOnAdd: true}).addTo(map)
+    //         .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+    //     L.circle(e.latlng, radius).addTo(map);
+    // }
+
+    // function onLocationError(e) {
+    //     alert(e.message);
+    // }
+
+    // map.on('locationfound', onLocationFound);
+    // <!-- map.on('locationerror', onLocationError); -->
+
+    // map.bounce();
+
+    // map.locate({setView: true, maxZoom: 16});
+
+}
 
 function notify(){
     $('.notification').delay(2000).fadeIn('fast').delay(6000).fadeOut('fast',function(){
