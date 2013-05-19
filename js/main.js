@@ -1,3 +1,5 @@
+$( "#interests, #homepage").addClass("hidden");
+
 $('a[data-anchor]').each(function(){
 
     $(this).click(function(){
