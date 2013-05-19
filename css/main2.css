@@ -89,9 +89,17 @@ display: block;
 }
 #landing img {
 	margin-top: 3.2em;
-	
-
 }
+#btn-twitter {
+	text-shadow:0px -2px 0px rgba(0,0,0,0.5);
+	font-family: arvo;
+	/*background-image: url("../img/twitter.png");*/
+}
+btn-submit {
+	font-family: arvo!important;
+}
+
+	
 
 
 
