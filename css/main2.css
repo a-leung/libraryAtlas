@@ -1,5 +1,13 @@
 body {
 	background-color: #6AA4A8;
+	padding-left: 0!important;
+	padding-right: 0!important;
+	padding-bottom: 0!important;
+	
+}
+.container {
+	padding-left: 20px!important;
+	padding-right: 20px!important;
 }
 h2 {
 	font-family: arvo;
@@ -26,11 +34,8 @@ h3 {
 .quote {
 	font-family: arvo;
 	margin-bottom: 1em;
-	font-size: 1.2em;
-	line-height: 1.2em;
-}
-.quote:first-child {
-	color: red;
+	font-size: 1.1em;
+	line-height: 1.1em;
 }
 a:hover {
 	text-decoration: none;
@@ -41,28 +46,52 @@ a:active {
 a:focus {
 	text-decoration: none;
 }
-a {
+.accordion a {
 	font-family: arvo;
-	color: white;
+	color: #f9f9f9;
+	font-weight: 100;
 }
-
+#top_tweet {
+	font-weight: 400;
+	font-size: 1.2em;
+	line-height: 1.4em;
+	color: white;
+	background-color: #3D90AC;
+}
 .accordion-heading .accordion-toggle {
 display: block;
-	padding: 10px 0px!important;
+	/*padding: 10px 0px!important;*/
 }
 
 .accordion-group {
 	border: none;
-	border-bottom: 2px solid white;
+	border-bottom: 1px solid white;
 	border-radius: 0px!important;
 }
 .accordion-inner {
 	border: none;
+	color: white;
 }
+.user-info {
+	margin-top: 1em;
+}
+.user-info img {
+	float: right;
+}
+.user-info {
+	/*float: left;*/
+}
+.hero-unit {
+	margin-bottom: 0px;
+}
+.accordion-inner img {
+	float: right;
+}
+#landing img {
+	margin-top: 3.2em;
+	
 
-
-
-
+}
 
 
 
