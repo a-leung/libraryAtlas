@@ -177,7 +177,7 @@ $('#interests-form').submit(function(post){
 
 // COOKIES HANDLE
 
-// $.removeCookie('user');
+$.removeCookie('user');
 
 if($.cookie('user')){    
     // console.log($.cookie('user'));
