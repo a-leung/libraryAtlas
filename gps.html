@@ -29,10 +29,10 @@
 	  <!-- var map = L.map('map').setView([40.7534388, -73.9901187], 13); -->
 	  var map = L.map('map2').setView([40.752825,-73.981384], 18);
 
-	  <!-- L.marker([40.752825,-73.981384]).addTo(map).bindPopup("Breakfast at Tiffany's").openPopup(); -->
-	  var popup = L.marker([40.752825,-73.981384]).addTo(map).on('click', function() {
+	  <!--  L.marker([40.752825,-73.981384]).addTo(map).bindPopup("Breakfast at Tiffany's").openPopup(); -->
+	   var popup = L.marker([40.752825,-73.981384]).addTo(map).on('click', function() {
 	    this.bounce(); });
-	    popup.openPopup();
+	    popup.openPopup(); 
 
 	  <!-- L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', { -->
 	  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
