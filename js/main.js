@@ -60,19 +60,34 @@ $('#btn-twitter').click(function(){
         
         //we are logged in with twitter 
 
-        $(that).addClass('hidden');
-        
-        if(reply){
+        if(!reply.errors){
+            
+            // $.cookie.json = true;
+            $.cookie('user', 'logged_in');
+            // $.cookie('user_info', reply);
+
+
+            // console.log($.cookie('user'));
+            // console.log(reply);
+
+
+            // console.log($.cookie('user'));
+
             var next_section = $('#interests');
 
             scroll_section(next_section);
 
-            // console.log(reply);
 
             $('.user-info .avatar',next_section).attr("src",reply.profile_image_url);    
             $('.user-info .screen_name',next_section).html("Welcome <b>" + reply.screen_name + "</b>");
             $('.user-info',next_section).removeClass('hidden');
-        } 
+
+            // $(that).addClass('hidden');
+        } else {
+
+            $('.signup-error-msg').html("We have an error here. Probably too many requests to twitter. Wait up a sec...!")
+
+        }
     }
   );
 
@@ -106,7 +121,7 @@ $('#btn-twitter').click(function(){
         //     function (reply) {
         //         // store the authenticated token, which may be different from the request token (!)
         //         cb.setToken(reply.oauth_token, reply.oauth_token_secret);
-
+// 
         //         // if you need to persist the login after page reload,
         //         // consider storing the token in a cookie or HTML5 local storage
         //     }
@@ -115,10 +130,56 @@ $('#btn-twitter').click(function(){
 })
 
 
-$('#interests-form').submit(function(){
+$('#interests-form').submit(function(post){
+
+    // var interests = {
+    //         'genre'     : []
+    //        ,'cities'    : []
+    //        ,'books'     : []
+    //        ,'author'    : []
+    // };
+
+    var interests = [];
+
+    $('.select2-search-choice',this).each(function(){
+        interests.push($('div',this).html());
+        // console.log($(this));
+    });
+
+    // interests.cities = cities;
+
+    // console.log(interests);
+    // var cookie = $.cookie('user');
+    // cookie.interests = "ad"; 
+
+    // console.log(this);
+    // cookie = 'ad';
+    
+    // $.removeCookie('user');
+    // $.cookie('user', 'sa');
+    // if($.cookie('user')){
+    //     var cookie = $.cookie('user');
+    //     cookie.interests = interests;
+
+    //     $.cookie('user',cookie);
+    //     console.log($.cookie('user'));
+    // }
+    // console.log($.cookie('user'))    ;
 
     scroll_section($($(this).attr('data-action')));
 
     return false;
 
 })
+
+
+
+
+// COOKIES HANDLE
+
+// $.removeCookie('user');
+
+if($.cookie('user')){    
+    // console.log($.cookie('user'));
+    set_current_section($("#homepage"));       
+}
