@@ -67,7 +67,7 @@ $('#btn-twitter').click(function(){
 
             scroll_section(next_section);
 
-            console.log(reply);
+            // console.log(reply);
 
             $('.user-info .avatar',next_section).attr("src",reply.profile_image_url);    
             $('.user-info .screen_name',next_section).html("Welcome <b>" + reply.screen_name + "</b>");
