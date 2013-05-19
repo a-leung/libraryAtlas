@@ -27,7 +27,7 @@ function set_current_section(curr_section){
 }
 
 function show_section(section){
-    section.removeClass('hidden');
+    section.addClass('hidden');
 }
 
 
