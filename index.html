@@ -8,7 +8,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
         <style>
             body {
                 padding-top: 60px;
@@ -73,6 +73,7 @@
         <div class="btns">
             <button id="btn-twitter" class="btn btn-primary btn-large span12">Login with Twitter</button>
         </div>
+        <p class="signup-error-msg"></p>
     </div> 
     </div>
     <img src="img/lady.png" alt="">
@@ -81,7 +82,7 @@
 
 <!-- Landing Page Markup End -->
 
-<section id="interests" class="hidden">
+<section id="interests" class="">
         <div class="container">
 
             <!-- Example row of columns -->
@@ -92,6 +93,7 @@
             <div class="user-info hidden">
                 <img src="#" class="avatar"/>
                 <p class="screen_name"></p>
+
             </div>                                 
                     <h1>Check Out Your Favorites...</h1>                
         <form action="form" id="interests-form" data-action="#homepage">
@@ -233,7 +235,7 @@
     </section>
 
             
-    <section id="homepage" class="hidden">
+    <section id="homepage" class="">
             <div id="anchor2" class="span4">
                     <div class="hero-unit">
                         <div id="map"></div>
@@ -348,10 +350,9 @@
         <script type="text/javascript" src="js/twitter/sha1.js"></script>
         <script type="text/javascript" src="js/twitter/codebird.js"></script>
         <script src="select/select2.js"></script>
-        <script type="text/javascript">
 
-        </script>
 
+        <script src="js/jquery-cookie/jquery.cookie.js"></script>
 
         <script src="js/main.js"></script>
 
