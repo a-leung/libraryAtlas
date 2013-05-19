@@ -1,0 +1,41 @@
+body {
+	background-color: #6AA4A8;
+}
+h2 {
+	font-family: arvo;
+	font-weight: 400;
+	color: white;
+}
+h1 {
+	font-family: arvo;
+	font-weight: 700;
+	/*color: white;*/
+}
+.text-center {
+	text-align: center;
+}
+.width-full {
+	width: 100%!important;
+}
+h3 {
+	font-family: arvo;;
+	color: white;
+	font-weight: 400;
+	line-height: 1.2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
