@@ -194,6 +194,14 @@ if($.cookie('user')){
     notify(); 
 }
 
+$('#reset').click(function(){
+    $.removeCookie('user');
+
+    set_current_section($("#landing"));      
+
+
+})
+
 function load_map(){
   
     
@@ -232,10 +240,16 @@ function load_map(){
 }
 
 function notify(){
-    $('.notification').delay(2000).fadeIn('fast').delay(6000).fadeOut('fast',function(){
+    $('.notification').delay(2000).fadeIn('fast');
+    
+}
+
+
+$('.btn-close').click(function(){
+    // console.log("S");
+    $('.notification').fadeOut('fast',function(){
 
         $('#top_tweet').fadeIn('slow');
 
-    });
-    
-}
+    });    
+})
