@@ -15,17 +15,8 @@
     height: 250px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+section{
+  min-height: 100%;
+}
 
 

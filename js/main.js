@@ -17,6 +17,36 @@ $('a[data-anchor]').each(function(){
 var cb = new Codebird;
 cb.setConsumerKey('oGtj4ibCQ1SlSg4fgQqQ', 'TJgnryUo1C67JHgAIC3vkK86tw1DgORRKiCPICYEqE');
 
+
+var current_section = $("#landing");
+
+function set_current_section(curr_section){
+    $('section').addClass('hidden');
+    curr_section.removeClass('hidden');
+    current_section = curr_section;
+}
+
+function show_section(section){
+    section.removeClass('hidden');
+}
+
+
+function scroll_section(section){
+  
+  show_section(section);  
+
+  // console.log(section.offset().top)
+
+  $('html, body').animate({
+    scrollTop : section.offset().top 
+  },200,function(){
+    set_current_section(section);
+    // console.log('animate ' + section.offset().top)
+  })
+}
+
+
+
 $('#btn-twitter').click(function(){
    
   var that = this;      
@@ -31,7 +61,18 @@ $('#btn-twitter').click(function(){
         //we are logged in with twitter 
 
         $(that).addClass('hidden');
-        console.log(reply);
+        
+        if(reply){
+            var next_section = $('#interests');
+
+            scroll_section(next_section);
+
+            console.log(reply);
+
+            $('.user-info .avatar',next_section).attr("src",reply.profile_image_url);    
+            $('.user-info .screen_name',next_section).html("Welcome <b>" + reply.screen_name + "</b>");
+            $('.user-info',next_section).removeClass('hidden');
+        } 
     }
   );
 
@@ -70,5 +111,14 @@ $('#btn-twitter').click(function(){
         //         // consider storing the token in a cookie or HTML5 local storage
         //     }
         // );  
+
+})
+
+
+$('#interests-form').submit(function(){
+
+    scroll_section($($(this).attr('data-action')));
+
+    return false;
 
 })

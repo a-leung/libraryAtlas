@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>Quotes It!</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -16,8 +16,16 @@
         </style>
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/main2.css">
+        <link href="select/select2.css" rel="stylesheet"/>
+
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+  <!-- Google Font -->
+
+     <link href='http://fonts.googleapis.com/css?family=Arvo:300,400,500,700' rel='stylesheet' type='text/css'>
+     <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>           
 
     </head>
     <body>
@@ -27,7 +35,7 @@
 
         <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+<!--         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -35,7 +43,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Project name</a>
+                    <a class="brand" href="#">Quote It!</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active"><a href="#">Home</a></li>
@@ -43,37 +51,205 @@
                             <li><a href="#anchor2" data-anchor="#anchor2">Anchor 2</a></li>
                             <li><a href="#anchor3" data-anchor="#anchor3">Anchor 3</a></li>
                         </ul>
-<!--                         <form class="navbar-form pull-right">
-                            <input class="span2" type="text" placeholder="Email">
-                            <input class="span2" type="password" placeholder="Password">
-                            <button type="submit" class="btn">Sign in</button>
-                        </form> -->
-                    </div><!--/.nav-collapse -->
+                    </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+    </br>
+    
+    <div class="container">
 
+<!-- Landing Page Markup -->
+<section id="landing" >
+    <img src="img/logo.png">       
+    </br>
+    </br>
+    </br>
+    </br>    
+
+        <h2 class="text-center">Sends you quotes from your favorite books as you walkaround</h2>
+    </br>
+    </br>
+    </br>
+    </br>
+    <div class="row">
+        <div class="btns">
+            <button id="btn-twitter" class="btn btn-primary btn-large span12">Login with Twitter</button>
+        </div>
+    </div> 
+    </br>
+    </br>
+    </div>
+</section>
+<!-- Landing Page Markup End -->
+
+<section id="interests" class="hidden">
         <div class="container">
 
-            <!-- Main hero unit for a primary marketing message or call to action -->
-            <div class="hero-unit">
-                <div id="map"></div>
+            <div class="user-info hidden">
+                <img src="#" class="avatar"/>
+                <p class="screen_name"></p>
             </div>
-
-            <a href="#" id="btn-twitter" class="btn btn-info">Sign in with Twitter</a>
-            <!-- <input id="PINFIELD" type="textfield" > -->
 
             <!-- Example row of columns -->
             <div id="#about" class="row">
                 <div id="anchor1" class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
-                </div>
-                <div id="anchor2" class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
+        </br>                    
+                    <h1>Curate Your Quotes!</h1>
+        </br>                    
+        <form action="form" id="interests-form" data-action="#homepage">
+            <div class="row">
+                <select multiple="multiple" placeholder="Pick Your Genres" class="width-full selection">
+                    <option>Arts & Photography</option>
+                    <option>Biography</option>
+                    <option>Business</option>
+                    <option>Celebrity</option>
+                    <option>Children's Books</option>
+                    <option>Comics/Graphic Novels</option>
+                    <option>Cookbooks/Food/Wine</option>
+                    <option>Crafts, Hobbies, and Home</option>
+                    <option>Fiction</option>
+                    <option>Gay & Lesbian</option>
+                    <option>Health/Fitness/Dieting</option>
+                    <option>History</option>
+                    <option>Humor/Satire/Entertainment</option>
+                    <option>Law</option>
+                    <option>Memoir</option>
+                    <option>Mystery/Thriller/Suspense</option>
+                    <option>Nonfiction</option>
+                    <option>Parenting/Relationships</option>
+                    <option>Poetry</option>
+                    <option>Politics/Social Science</option>
+                    <option>Professional/Technical</option>
+                    <option>Religion/Spirituality</option>
+                    <option>Romance</option>
+                    <option>Science</option>
+                    <option>Science Fiction/Fantasy</option>
+                    <option>Self-Help</option>
+                    <option>Sports/Outdoors</option>
+                    <option>Travel</option>
+                    <option>Young Adult</option>
+                </select>  
+            </div>
+        </br>
+            <div class="row">
+                <select multiple="multiple" placeholder="Pick Your City" class="width-full selection">
+                        <option>New London</option>
+                        <option>New Lothrop</option>
+                        <option>New Market</option>
+                        <option>New Market</option>
+                        <option>New Meadows</option>
+                        <option>New Memphis</option>
+                        <option>New Munich</option>
+                        <option>New Orleans</option>
+                        <option>New Paltz</option>
+                        <option>New Philadnew yorlphia</option>
+                        <option>New Plymouth</option>
+                        <option>New Prague</option>
+                        <option>New Ringgold</option>
+                        <option>New Rochelle</option>
+                        <option>New Salem</option>
+                        <option>New Salisbury</option>
+                        <option>New Sharon</option>
+                        <option>New Smyrna Beach</option>
+                        <option>New Ulm</option>
+                        <option>New Washington</option>
+                        <option>New Windsor</option>
+                        <option>New York</option>
+                        <option>Newark</option>
+                </select>  
+            </div>
+        </br>            
+            <div class="row">
+                <select multiple="multiple" placeholder="Pick Your Book Titles" class="width-full selection">
+                        <option>Back to the Army Again<option>
+                        <option>Be Courteous<option>
+                        <option>Be Not Anxious<option>
+                        <option>Be Strong<option>
+                        <option>Behold The Man!<option>
+                        <option>Bernard Of The Tuileries<option>
+                        <option>Bethink Yourselves<option>
+                        <option>Between Us Now<option>
+                        <option>Birds of Prey<option>
+                        <option>Blessed Are They That Mourn<option>
+                        <option>Blighters<option>
+                        <option>Blink<option>
+                        <option>Bobs<option>
+                        <option>Bob Of Kandahar <option>
+                        <option>Booh<option>
+                        <option>Bread Upon The Waters<option>
+                        <option>By The Hoof Of The Wild Goat<option>
+                        <option>By The Runic Stone" (p) by Thomas-Hard<option>
+                        <option>Behold! I Am Not One That Goes to Lectures<option>
+                        <option>B. 24<option>
+                        <option>B. D. S<option>
+                        <option>Breakfast at Tiffary's<option>
+                        <option>B. Franklin, Deceased<option>
+                        <option>Baa! Baa! Black Sheep<option> 
+                        <option>Baa, Baa, Black Sheep <option>
+                        <option>Baa-Sheep and the Lion<option>
+                        <option>Bab: A Sub-Deb<option>
+                        <option>Baba Yaga<option>
+                        <option>Babbitt<option>
+                    
+                </select>  
+            </div>     
+        </br>
+            <div class="row">
+                <select multiple="multiple" placeholder="Pick Your Author" class="width-full selection">
+                        <option>Kurt Anderson<option>
+                        <option>Edward Albee<option>
+                        <option>Woody Allen<option>
+                        <option>Djuna Barnes<option>
+                        <option>William S. Burroughs<option>
+                        <option>Willa Cather<option>
+                        <option>Hart Crane<option>
+                        <option>e.e. Cummings<option>
+                        <option>F. Scott Fitzgerald<option>
+                        <option>William Gaddis<option>
+                        <option>Allen Ginsberg<option>
+                        <option>Joseph Heller<option>
+                        <option>Ernest Hemingway<option>
+                        <option>Jack Kerouac<option>
+                        <option>Langston Hughes<option>
+                        <option>Zora Neale Hurston<option>
+                        <option>Frank McCourt<option>
+                        <option>Jay McInerney<option>
+                        <option>Edna St. Vincent Millay<option>
+                        <option>Arthur Miller<option>
+                        <option>Eugene O'Neill<option>
+                        <option>Dorothy Parker<option>
+                        <option>Edgar Allen Poe<option>
+                        <option>Sylvia Plath<option>
+                        <option>Upton Sinclair<option>
+                        <option>Mark Twain<option>
+                        <option>Edith Wharton<option>
+                        <option>Walt Whitman<option>
+                        <option>Thomas Wolfe<option>                
+                    </select>  
+            </div>                                                               
+        </br>
+        </br>
+        </br>
+            <input class="btn btn-large width-full btn-primary btn-submit" type="submit">
+        </br>
+        </br>
+        </form>
+                   
+        </div>
+    </section>
+
+            
+    <section id="homepage" class="hidden">
+            <div id="anchor2" class="span4">
+                </br>
+                    <h3>“It should take you exactly four seconds to cross from here to that door. I’ll give you two.” - Audrey Hepburn</h3>
+                </br>
+                    <!-- Main hero unit for a primary marketing message or call to action -->
+                    <div class="hero-unit">
+                        <div id="map"></div>
+                    </div>
+
                </div>
                 <div id="anchor3" class="span4">
                     <h2>Heading</h2>
@@ -83,12 +259,8 @@
             </div>
 
             <hr>
-
-            <footer>
-                <p>&copy; Company 2012</p>
-            </footer>
-
-        </div> <!-- /container -->
+    </section>
+</div> <!-- /container -->
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
@@ -134,7 +306,7 @@
 
         <script type="text/javascript" src="js/twitter/sha1.js"></script>
         <script type="text/javascript" src="js/twitter/codebird.js"></script>
-
+        <script src="select/select2.js"></script>
         <script type="text/javascript">
 
         </script>
@@ -148,5 +320,10 @@
         //     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
         //     s.parentNode.insertBefore(g,s)}(document,'script'));
         // </script>
+        <script>
+            $(document).ready(function() { 
+                $(".selection").select2();
+            });
+        </script>
     </body>
 </html>
