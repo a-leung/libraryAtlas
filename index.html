@@ -14,7 +14,7 @@
                 padding-bottom: 40px;
             }
         </style>
-        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/main2.css">
         <link href="select/select2.css" rel="stylesheet"/>
@@ -246,7 +246,7 @@
                 </br>
                     <!-- Main hero unit for a primary marketing message or call to action -->
                     <div class="hero-unit">
-                        <div id="map"></div>
+                        <div id="map2"></div>
                     </div>
 
                </div>
@@ -266,12 +266,14 @@
 
         <script src="js/vendor/bootstrap.min.js"></script>
 
-        <link rel="stylesheet" href="http://leafletjs.com/dist/leaflet.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
         <!--[if lte IE 8]><link rel="stylesheet" href="../dist/leaflet.ie.css" /><![endif]-->
         <script src="http://leafletjs.com/dist/leaflet.js"></script>
+	<script src="https://github.com/maximeh/leaflet.bouncemarker/raw/master/bouncemarker.js"></script>
 
         <script>
-	  var map = L.map('map').setView([40.752825,-73.981384], 18);
+	  var map = L.map('map2').setView([40.752825,-73.981384], 18);
 
 	  var popup = L.marker([40.752825,-73.981384]).addTo(map).on('click', function() {
 	  this.bounce(); });
@@ -281,10 +283,24 @@
           maxZoom: 18
           }).addTo(map);
 
+		function onLocationFound(e) {
+			var radius = e.accuracy / 2;
+			L.marker(e.latlng).addTo(map)
+				.bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+			L.circle(e.latlng, radius).addTo(map);
+		}
+
+		function onLocationError(e) {
+			alert(e.message);
+		}
+
+		map.on('locationfound', onLocationFound);
+		<!-- map.on('locationerror', onLocationError); -->
+
 
             map.locate({setView: true, maxZoom: 16});
         </script>
-
 
         <script type="text/javascript" src="js/twitter/sha1.js"></script>
         <script type="text/javascript" src="js/twitter/codebird.js"></script>
