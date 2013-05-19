@@ -9,6 +9,7 @@
 	<!--[if lte IE 8]><link rel="stylesheet" href="../dist/leaflet.ie.css" /><![endif]-->
 
 	<script src="http://leafletjs.com/dist/leaflet.js"></script>
+	<script src="https://github.com/maximeh/leaflet.bouncemarker/raw/master/bouncemarker.js"></script>
 
 	<style>
 		body {
@@ -25,12 +26,17 @@
 	<div id="map"></div>
 
 	<script>
-		var map = L.map('map').setView([40.7534388, -73.9901187], 15);
-		var marker = L.marker([40.7534388, -73.9901187]).addTo(map).bindPopup("AlleyNYC").openPopup();
-		var bat1 = L.marker([40.762711,-73.9739]).addTo(map).bindPopup("Paul's first apartment");
+	  <!-- var map = L.map('map').setView([40.7534388, -73.9901187], 13); -->
+	  var map = L.map('map').setView([40.752825,-73.981384], 18);
+	  <!-- L.marker([40.752825,-73.981384]).addTo(map).bindPopup("Breakfast at Tiffany's").openPopup(); -->
+	  var popup = L.marker([40.752825,-73.981384]).addTo(map).on('click', function() {
+	  this.bounce(); });
+	  popup.openPopup();
 
+"Late one afternoon, while waiting for a Fifth Avenue bus, I noticed a taxi stop across the street to let out a girl who ran up the steps of the Forty-second Street public library. She was through the doors before I recognized her, which was pardonable, for Holly and libraries were not an easy association to make. I let curiosity guide me between the lions, debating on the way whether I should admit following her or pretend coincidence. In the end I did neither, but concealed myself some tables away from her in the general reading room, where she sat behind her dark glasses and a fortress of literature she'd gathered at the desk."
 
-		L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
+	  <!-- L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', { -->
+	  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom: 18
 			
 		}).addTo(map);
