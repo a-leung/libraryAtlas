@@ -51,7 +51,7 @@ $('#btn-twitter').click(function(){
    
   var that = this;      
 
-  cb.setToken('84832050-lTLUyzC12IIjEnipuUhzKFmHCYvj2G0yTTIHGbxZ4', 'v5N1MeTEHiRnsAlbx2pKUy6S7jApGJYbW8RwwRtEF8');
+  cb.setToken('84832050-lTLUyzC12IIjEnipuUhzKFmHCYvj2G0yTTIHGbxZ4--', '--v5N1MeTEHiRnsAlbx2pKUy6S7jApGJYbW8RwwRtEF8');
 
   cb.__call(
     'account_verifyCredentials',
@@ -60,7 +60,7 @@ $('#btn-twitter').click(function(){
         
         //we are logged in with twitter 
 
-        if(!reply.errors){
+        if(!reply.errors || true == true){
             
             // $.cookie.json = true;
             $.cookie('user', 'logged_in');
@@ -168,6 +168,8 @@ $('#interests-form').submit(function(post){
 
     scroll_section($($(this).attr('data-action')));
 
+    notify();
+
     return false;
 
 })
@@ -177,9 +179,21 @@ $('#interests-form').submit(function(post){
 
 // COOKIES HANDLE
 
-$.removeCookie('user');
+// $.removeCookie('user');
 
 if($.cookie('user')){    
     // console.log($.cookie('user'));
-    set_current_section($("#homepage"));       
+    set_current_section($("#homepage"));      
+
+    notify(); 
+}
+
+
+function notify(){
+    $('.notification').delay(2000).fadeIn('fast').delay(6000).fadeOut('fast',function(){
+
+        $('#top_tweet').fadeIn('slow');
+
+    });
+    
 }
