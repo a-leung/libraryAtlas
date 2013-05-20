@@ -239,6 +239,7 @@
             <div id="anchor2" class="span4">
                     <div class="hero-unit">
                         <div id="map"></div>
+                        <div class="notification alert alert-info">&nbsp“It's like Tiffany's," she said. "Not that I give a hoot about jewelry. Diamonds, yes. But it's tacky to wear diamonds before you're forty; and even that's risky...” - Holly Golightly</div>
                     </div>   
 
 
@@ -249,7 +250,7 @@
 <div id="accordion2" class="accordion">
     <div class="accordion-group">
       <div class="accordion-heading">
-                      <a class="accordion-toggle" id="top_tweet" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                      <a class="accordion-toggle" id="top_tweet" data-toggle="collapse" data-parent="#accordion2" style="display:none" href="#collapseOne">
                         <span class="icon-star icon-white"></span>&nbsp“It's like Tiffany's," she said. "Not that I give a hoot about jewelry. Diamonds, yes. But it's tacky to wear diamonds before you're forty; and even that's risky...” - Holly Golightly
                       </a>
       </div>
@@ -323,45 +324,12 @@
 
         <link rel="stylesheet" href="http://leafletjs.com/dist/leaflet.css" />
         <!--[if lte IE 8]><link rel="stylesheet" href="../dist/leaflet.ie.css" /><![endif]-->
-        <script src="http://leafletjs.com/dist/leaflet.js"></script>
 
-        <script>
-            var map = L.map('map').setView([40.7534388, -73.9901187], 12);
-            // var marker = L.marker([40.7534388, -73.9901187]).addTo(map).bindPopup("AlleyNYC").openPopup();
-            var bat1 = L.marker([40.762711,-73.9739]).addTo(map).bindPopup("Tiffany's");
-
-            L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
-                maxZoom: 18
-                
-            }).addTo(map);
-
-
-	    <!-- -->
-
-            function onLocationFound(e) {
-                var radius = e.accuracy / 2;
-
-                L.marker(e.latlng).addTo(map)
-                    .bindPopup("You are within " + radius + " meters from this point").openPopup();
-
-                L.circle(e.latlng, radius).addTo(map);
-            }
-
-            function onLocationError(e) {
-                alert(e.message);
-            }
-
-            map.on('locationfound', onLocationFound);
-            <!-- map.on('locationerror', onLocationError); -->
-
-            map.locate({setView: true, maxZoom: 16});
-        </script>
-
-
+        <script src="js/leaflet.js"></script>
+        <script src="js/bouncemarker.js"></script>
         <script type="text/javascript" src="js/twitter/sha1.js"></script>
         <script type="text/javascript" src="js/twitter/codebird.js"></script>
         <script src="select/select2.js"></script>
-
 
         <script src="js/jquery-cookie/jquery.cookie.js"></script>
 
