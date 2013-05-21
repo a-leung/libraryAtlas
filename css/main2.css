@@ -94,6 +94,12 @@ display: block;
 	text-shadow:0px -1px 0px rgba(0,0,0,0.5);
 	font-family: arvo;
 }
+.time_text {
+	font-size: 0.8em;
+	margin-bottom: 0;
+	font-family: ubuntu;
+	color: #e6e6e6;
+}
 
 	
 
