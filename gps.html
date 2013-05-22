@@ -16,18 +16,17 @@
 			padding: 0;
 			margin: 0;
 		}
-		html, body, #map2 {
-			height: 500px;
-		        width: 500px;
+		html, body, #map {
+			height: 300px;
 		}
 	</style>
 </head>
 <body>
-	<div id="map2"></div>
+	<div id="map"></div>
 
 	<script>
 	  <!-- var map = L.map('map').setView([40.7534388, -73.9901187], 13); -->
-	  var map = L.map('map2').setView([40.752825,-73.981384], 18);
+	  var map = L.map('map').setView([40.752825,-73.981384], 18);
 
 	  <!--  L.marker([40.752825,-73.981384]).addTo(map).bindPopup("Breakfast at Tiffany's").openPopup(); -->
 	   var popup = L.marker([40.752825,-73.981384]).addTo(map).on('click', function() {
@@ -38,6 +37,53 @@
 	  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	    maxZoom: 18}).addTo(map);
 
+	  function onLocationFound(e) {
+	     var radius = e.accuracy / 2;
+
+	     L.marker(e.latlng).addTo(map)
+	        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+	     L.circle(e.latlng, radius).addTo(map);
+	  } 
+
+	  function onLocationError(e) {
+	     alert(e.message);
+	  }
+
+	  map.on('locationfound', onLocationFound);
+	  <!-- map.on('locationerror', onLocationError); --> <!-- alert when no geo found -->
+
+	  map.locate({setView: true, maxZoom: 16});
+
+	  map.on('click', function(e) {
+	    alert('You are: '+ distanceTo( (new L.LatLng(40.7534388, -73.9901187) ) - (new L.LatLng(40.752825,-73.981384) ) ) + 'm from wherever');
+	  
+	  });
+
+	  function quoteOne() {
+	    map.panTo( new L.LatLng(40.7534388, -73.9901187));
+	    //document.getElementById("quote").innerHTML = "wassup?";
+	  //var map = L.map('map').setView([40.752825,-73.981384], 12);
+
+	  };
+
+
+	  function quoteTwo() {
+	    map.panTo( new L.LatLng(40.752825,-73.981384) );
+	  };
+
+
 	</script>
+
+
+
+	<div id="quote"> 
+	  <p> where are we? </p>
+	  <button onclick="quoteOne()">Quote one</button><br />
+	  <button onclick="quoteTwo()">Quote two</button>
+
+
+
+	</div> <!-- quote -->
 </body>
 </html>
