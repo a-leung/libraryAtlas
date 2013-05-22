@@ -189,9 +189,9 @@ if($.cookie('user')){
     // console.log($.cookie('user'));
     set_current_section($("#homepage"));      
 
-    load_map();
+    /* load_map(); */
 
-    notify(); 
+/*     notify();  */
 }
 
 $('#reset').click(function(){
@@ -202,13 +202,13 @@ $('#reset').click(function(){
 
 })
 
-function load_map(){
+function load_map(latidute,longitude){
   
-    
-    var map = L.map('map').setView([40.7534388, -73.9901187], 16);
+    if(map == undefined) 
+      var map = L.map('map').setView([latidute, longitude], 10);
     
     // var marker = L.marker([40.7534388, -73.9901187]).addTo(map).bindPopup("AlleyNYC").openPopup();
-    var bat1 = L.marker([40.762711,-73.9739]).addTo(map).bindPopup("Tiffany's").openPopup();
+    var bat1 = L.marker([latidute,longitude]).addTo(map).bindPopup("Tiffany's").openPopup();
 
 
     L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
@@ -253,3 +253,50 @@ $('.btn-close').click(function(){
 
     });    
 })
+
+
+
+
+
+// Wait for Cordova to load
+//
+document.addEventListener("deviceready", onDeviceReady, false);
+
+// Cordova is ready
+//
+function onDeviceReady() {
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+}
+
+// onSuccess Geolocation
+//
+function onSuccess(position) {
+    var element = document.getElementById('geolocation');
+
+    load_map(position.coords.latitude, position.coords.longitude);    
+    
+/*     var map = L.map('map').setView([40.7534388, -22.9901187], 16); */
+    
+/*
+    element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                        'Longitude: '          + position.coords.longitude             + '<br />' +
+                        'Altitude: '           + position.coords.altitude              + '<br />' +
+                        'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                        'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                        'Heading: '            + position.coords.heading               + '<br />' +
+                        'Speed: '              + position.coords.speed                 + '<br />' +
+                        'Timestamp: '          +                                   position.timestamp          + '<br />';
+*/
+}
+
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    console.log('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+}
+
+var watchId = navigator.geolocation.watchPosition(geolocationSuccess,
+                                                  [geolocationError],
+                                                  [geolocationOptions]);
+    
