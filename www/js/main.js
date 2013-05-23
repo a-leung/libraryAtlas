@@ -52,9 +52,7 @@ function scroll_section(section){
 $('#btn-twitter').click(function(){
    
   var that = this;      
-
   cb.setToken('84832050-lTLUyzC12IIjEnipuUhzKFmHCYvj2G0yTTIHGbxZ4', 'v5N1MeTEHiRnsAlbx2pKUy6S7jApGJYbW8RwwRtEF8');
-
   cb.__call(
     'account_verifyCredentials',
     {},
@@ -67,19 +65,14 @@ $('#btn-twitter').click(function(){
             // $.cookie.json = true;
             $.cookie('user', 'logged_in');
             // $.cookie('user_info', reply);
-
-
             // console.log($.cookie('user'));
             // console.log(reply);
-
 
             // console.log($.cookie('user'));
 
             var next_section = $('#interests');
 
             scroll_section(next_section);
-
-
             $('.user-info .avatar',next_section).attr("src",reply.profile_image_url);    
             $('.user-info .screen_name',next_section).html("Welcome <b>" + reply.screen_name + "</b>");
             $('.user-info',next_section).removeClass('hidden');
@@ -169,20 +162,13 @@ $('#interests-form').submit(function(post){
     // console.log($.cookie('user'))    ;
 
     scroll_section($($(this).attr('data-action')));
-
     notify();
-
     load_map();
-
     return false;
 
 })
 
-
-
-
 // COOKIES HANDLE
-
 // $.removeCookie('user');
 
 if($.cookie('user')){    
@@ -196,10 +182,7 @@ if($.cookie('user')){
 
 $('#reset').click(function(){
     $.removeCookie('user');
-
     set_current_section($("#landing"));      
-
-
 })
 
 function load_map(latidute,longitude){
@@ -210,10 +193,8 @@ function load_map(latidute,longitude){
     // var marker = L.marker([40.7534388, -73.9901187]).addTo(map).bindPopup("AlleyNYC").openPopup();
     var bat1 = L.marker([latidute,longitude]).addTo(map).bindPopup("Tiffany's").openPopup();
 
-
     L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
         maxZoom: 18
-        
     }).addTo(map);
 
 
@@ -241,9 +222,7 @@ function load_map(latidute,longitude){
 
 function notify(){
     $('.notification').delay(2000).fadeIn('fast');
-    
 }
-
 
 $('.btn-close').click(function(){
     // console.log("S");
@@ -254,17 +233,14 @@ $('.btn-close').click(function(){
     });    
 })
 
-
-
-
-
 // Wait for Cordova to load
 //
-document.addEventListener("deviceready", onDeviceReady, false);
+document.addEventListener("deviceready", onDeviceReady, true);
 
 // Cordova is ready
 //
 function onDeviceReady() {
+    console.log("hello!");
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
